@@ -1,6 +1,6 @@
 /*import*/
 import $ from 'jquery';
-import './App.js';
+import './vue/App.js';
 import Common from './modules/common';
 import Sample from './modules/Sample';
 

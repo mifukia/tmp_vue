@@ -1,6 +1,6 @@
 import Vue from 'vue';
-import store from './store'
-import VueParent from '../component/parent.vue';
+import store from './store/store';
+import VueParent from './component/parent.vue';
 new Vue({
     store,
     el: '#app',

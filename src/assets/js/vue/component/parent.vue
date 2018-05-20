@@ -1,13 +1,19 @@
 <template>
     <div class="parent">
-        <div class="count">
+        <div class="countTxt">
+            {{countTxt}}
+        </div>
+        <div>
             {{count}}
+        </div>
+        <div>
+            {{count2}}
         </div>
         <button @click="increment">
             +
         </button>
         <button @click="decrement">
-            +
+            -
         </button>
         <vue-child></vue-child>
     </div>
@@ -15,21 +21,24 @@
 
 <script>
 import VueChild from './child.vue'
+import { mapState } from 'vuex'
+import { mapGetters } from 'vuex'
+import { mapMutations } from 'vuex'
 export default {
     components: {
         VueChild
     },
     computed: {
-        count(){
-            return this.$store.getters.countTxt
-        }
+        ...mapGetters('counterModule',['countTxt']),
+        ...mapState({
+            count2:state => `${state.counterModule.count}クリック`
+        }),
+        ...mapState('counterModule',['count']),
     },
     methods: {
-        increment(){
-            this.$store.dispatch('increment')
-        },
+        ...mapMutations('counterModule',['increment']),
         decrement(){
-            this.$store.dispatch('decrement')
+            this.$store.dispatch('counterModule/decrement')
         }
     }
 }
@@ -43,7 +52,7 @@ export default {
     }
     .parent{
         padding: 10/640*100%;
-        background: #eee;
+        background:#eee;
         margin-top: 10px;
         @include sp{
             background: red;
