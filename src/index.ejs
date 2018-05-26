@@ -6,10 +6,19 @@
 
 };
 %>
-<% include common/_header %>
-<div id="app">
-    <h1>hello, world.</h1>
-    <vue-parent></vue-parent>
-</div>
+    <% include common/_header %>
+        <div id="app">
+            <router-link to="/">
+                top
+            </router-link>
+            <router-link to="about">
+                about
+            </router-link>
+            <router-link to="contact">
+                contact
+            </router-link>
+            <vue-parent></vue-parent>
+            <router-view></router-view>
+        </div>
 
-<% include common/_footer %>
+        <% include common/_footer %>

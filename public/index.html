@@ -1,5 +1,5 @@
 
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="ja">
 
 <head>
@@ -39,15 +39,23 @@
     <header class="l-header">
     </header>
 
-<div id="app">
-    <h1>hello, world.</h1>
-    <vue-parent></vue-parent>
-</div>
+        <div id="app">
+            <router-link to="/">
+                top
+            </router-link>
+            <router-link to="about">
+                about
+            </router-link>
+            <router-link to="contact">
+                contact
+            </router-link>
+            <vue-parent></vue-parent>
+            <router-view></router-view>
+        </div>
 
-<footer class="l-footer">
+        <footer class="l-footer">
 
 </footer>
 <script type="text/javascript" src="/assets/js/bundle.js"></script>
 </body>
 </html>
-
